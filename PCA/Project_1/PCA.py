@@ -1,4 +1,13 @@
+"""
+@ author: Alex
+@ E-mail: xufanxin86@gmail.com
+
+@ Introduction: Simple application of PCA algorithm 
+
+"""
+
 import numpy as np
+
 
 
 def PCA(X,k):

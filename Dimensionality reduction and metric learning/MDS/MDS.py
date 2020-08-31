@@ -11,9 +11,12 @@ def calculate_dist(X):
     """
     
     sum_x = np.sum(np.square(X), 1)
-    dist = np.add(np.add( -2 * np.dot(X, X.T), sum_x).T, sum_x)
+    # dist_ij^2=b_ii + b_jj - 2 * b_ij
+    # sum_X as b_ii
+    # sum_X.T as b_jj
+    dist_ij = np.add(np.add( -2 * np.dot(X, X.T), sum_x).T, sum_x)
 
-    return dist
+    return dist_ij
 
 
 def Personal_MDS(data, n_dims):
@@ -27,12 +30,12 @@ def Personal_MDS(data, n_dims):
     """
     
     n,d = data.shape
-    dist = calculate_dist(data)
-    dist[dist < 0] = 0
+    dist_ij = calculate_dist(data)
+    dist_ij[dist_ij < 0] = 0
 
-    dist_ij = np.ones((n,n)) * np.sum(dist)/n**2
-    dist_i = np.sum(dist, axis=1, keepdims=True)/n
-    dist_j = np.sum(dist, axis=0, keepdims=True)/n
+    dist = np.ones((n,n)) * np.sum(dist_ij)/n**2
+    dist_i = np.sum(dist_ij, axis=1, keepdims=True)/n
+    dist_j = np.sum(dist_ij, axis=0, keepdims=True)/n
 
     B = -(dist_ij - dist_i -dist_j + dist)/2
 

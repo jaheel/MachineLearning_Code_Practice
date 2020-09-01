@@ -85,10 +85,7 @@ def Isomap(data, target_dims, k):
 
 
 if __name__=='__main__':
-    # iris = load_iris()
-    # data = iris.data
-    # Y = iris.target
-
+    
     data =np.array([[1,2,3,4],[2,1,5,6],[3,5,1,7],[4,6,7,1]]) #test data
     outcome = Isomap(data, 2, 3)
     print(outcome)

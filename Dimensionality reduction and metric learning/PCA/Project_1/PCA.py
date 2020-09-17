@@ -31,7 +31,7 @@ def PCA(X,k):
 
     # step 4: sort eig_vectors based on eig_values from highest to lowest
     eig_pairs = [(np.abs(eig_values[i]), eig_vectors[:,i]) for i in range(features_number)]
-    eig_pairs.sort(reverse = True)
+    eig_pairs.sort(reverse = True,key=(lambda x: x[0]))
 
     # step 5: select the top k eig_vectors
     feature = np.array([element[1] for element in eig_pairs[:k]])

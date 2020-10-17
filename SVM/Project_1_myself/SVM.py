@@ -7,6 +7,7 @@ Email: xufanxin86@gmail.com
 
 Introduction: Simple implementation of a SVM using the SMO algorithm
 
+
 """
 
 import numpy as np

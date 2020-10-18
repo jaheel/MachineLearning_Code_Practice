@@ -23,6 +23,7 @@ ax = plt.gca()
 xlim = ax.get_xlim()
 ylim = ax.get_ylim()
 
+
 #生成两个等差数列
 xx = np.linspace(xlim[0],xlim[1],30)
 yy = np.linspace(ylim[0],ylim[1],30)
